@@ -1,6 +1,6 @@
 package caseTest.thread;
 
-import entity.MyCallable;
+import caseTest.thread.entity.MyCallable;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;

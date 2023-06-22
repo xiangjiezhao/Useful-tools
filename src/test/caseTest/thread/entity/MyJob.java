@@ -1,4 +1,4 @@
-package entity;
+package caseTest.thread.entity;
 
 public class MyJob extends Thread{
 

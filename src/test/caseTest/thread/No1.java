@@ -1,6 +1,6 @@
 package caseTest.thread;
 
-import entity.MyJob;
+import caseTest.thread.entity.MyJob;
 
 /**
  * 多线程-继承Thread类，重写run方法

@@ -1,4 +1,4 @@
-package entity;
+package caseTest.thread.entity;
 
 import java.util.concurrent.Callable;
 
