@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * lambda-遍历集合
  */
-public class No1 {
+public class lambdaForEach {
 
     public static void main(String[] args) {
 
