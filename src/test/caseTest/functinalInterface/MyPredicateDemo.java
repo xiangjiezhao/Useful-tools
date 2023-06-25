@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+/**
+ * Predicate-用于数据判断
+ */
 public class MyPredicateDemo {
 
     public static List<Student> filter(List<Student> studentList, Predicate<Student> predicate) {
@@ -16,6 +19,7 @@ public class MyPredicateDemo {
             if(predicate.test(s)){
                 result.add(s);
             }
+
         });
 
         return result;
