@@ -2,7 +2,7 @@ package caseTest.thread;
 /**
  * 多线程-匿名内部类方式
  */
-public class No3 {
+public class AnonymousInnerClass {
 
 
     public static void main(String[] args) {

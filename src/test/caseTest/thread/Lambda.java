@@ -3,7 +3,7 @@ package caseTest.thread;
 /**
  * 多线程-lambda方式
  */
-public class No4 {
+public class Lambda {
 
     public static void main(String[] args) {
         Thread thread = new Thread(()->{

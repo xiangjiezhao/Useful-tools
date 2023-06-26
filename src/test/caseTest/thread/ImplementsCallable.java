@@ -8,7 +8,7 @@ import java.util.concurrent.FutureTask;
 /**
  * 多线程-实现Callable 重写call方法，配合FutureTask(一般用于有返回结果的非阻塞的执行方法)
  */
-public class No5 {
+public class ImplementsCallable {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 

@@ -5,7 +5,7 @@ import caseTest.thread.entity.MyJob;
 /**
  * 多线程-继承Thread类，重写run方法
  */
-public class No1 {
+public class ExtendsThread  {
 
     public static void main(String[] args) {
 
