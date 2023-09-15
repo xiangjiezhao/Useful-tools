@@ -23,7 +23,4 @@ public class ImplementsCallable {
         System.out.println("总和为:"+count);
     }
 
-
-
-
 }
