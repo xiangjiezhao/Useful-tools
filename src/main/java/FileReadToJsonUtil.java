@@ -6,7 +6,6 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -72,9 +71,6 @@ public class FileReadToJsonUtil {
                                 file1 = new File(fileName);
                             }
 
-//                            System.out.println(file1.getName());//根据后缀判断
-                            //String txt2String = txt2String(new File("C:\\Users\\PLUG\\Desktop\\file\\2023-09-12_DayTime.ALL"));
-//                            String txt2String = txt2String(new File(path + file1.getName()));
                             String txt2String = txt2String(file1);
                             String[] lines = txt2String.split("\r\n");
                             JSONArray jsonArray = new JSONArray();
@@ -104,10 +100,7 @@ public class FileReadToJsonUtil {
 //                            System.out.println(result);
 
                             //mq
-                            String subTopic = "/PUSH";
                             String pubTopic = "/PUSH";
-//                            String content = "Hello World";
-                            String content = result.get(0).toString();
                             int qos = 2;
                             String broker = "tcp://10.86.3.21:1883";
                             String clientId = "emqx_test";
@@ -123,29 +116,27 @@ public class FileReadToJsonUtil {
                                 // 保留会话
                                 connOpts.setCleanSession(true);
 
-                                // 设置回调
-//                                client.setCallback(new PushCallback());
-
                                 // 建立连接
                                 System.out.println("Connecting to broker: " + broker);
                                 client.connect(connOpts);
 
                                 System.out.println("Connected");
-                                System.out.println("Publishing message: " + content);
 
-                                // 订阅
-                                client.subscribe(subTopic);
+                                for (int i = 0; i < result.size(); i++) {
+                                    String content = result.get(i).toString();
+                                    System.out.println("Publishing message: " + content);
 
-                                // 消息发布所需参数
-                                MqttMessage message = new MqttMessage(content.getBytes());
-                                message.setQos(qos);
-                                client.publish(pubTopic, message);
-                                System.out.println("Message published");
+                                    // 消息发布所需参数
+                                    MqttMessage message = new MqttMessage(content.getBytes());
+                                    message.setQos(qos);
+                                    client.publish(pubTopic, message);
+                                    System.out.println("Message published");
+                                }
 
                                 client.disconnect();
                                 System.out.println("Disconnected");
                                 client.close();
-                                System.exit(0);
+//                                System.exit(0);
                             } catch (MqttException me) {
                                 System.out.println("reason " + me.getReasonCode());
                                 System.out.println("msg " + me.getMessage());
